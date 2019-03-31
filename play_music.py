@@ -17,6 +17,14 @@ GPIO.setup(LINKIT_IN_HOLD, GPIO.IN)
 GPIO.setup(LINKIT_IN_STOP, GPIO.IN)
 GPIO.setup(LINKIT_IN_MUS_1, GPIO.IN)
 GPIO.setup(LINKIT_IN_MUS_2, GPIO.IN)
+GPIO.setup(LED_PIN, GPIO.OUT)
+GPIO.setup(LINKIT_OUT_0, GPIO.OUT)
+GPIO.setup(LINKIT_OUT_1, GPIO.OUT)
+
+
+GPIO.output(LED_PIN, GPIO.HIGH)
+GPIO.output(LINKIT_OUT_0, GPIO.LOW)
+GPIO.output(LINKIT_OUT_1, GPIO.LOW)
 
 pygame.mixer.init()
 pygame.mixer.music.load("music.mp3")
@@ -28,13 +36,13 @@ while pygame.mixer.music.get_busy() == True:
 		break
 
 	elif GPIO.input(LINKIT_IN_MUS_1)==0 and GPIO.input(LINKIT_IN_MUS_2)==0:
-		pygame.mixer.music.set_volume(0.1)
+		pygame.mixer.music.set_volume(0.2)
 
 	elif GPIO.input(LINKIT_IN_MUS_1)==0 and GPIO.input(LINKIT_IN_MUS_2)==1:
-		pygame.mixer.music.set_volume(0.3)
+		pygame.mixer.music.set_volume(0.45)
 
 	elif GPIO.input(LINKIT_IN_MUS_1)==1 and GPIO.input(LINKIT_IN_MUS_2)==0:
-		pygame.mixer.music.set_volume(0.6)
+		pygame.mixer.music.set_volume(0.7)
 
 	elif GPIO.input(LINKIT_IN_MUS_1)==1 or GPIO.input(LINKIT_IN_MUS_2)==1:
 		pygame.mixer.music.set_volume(1)
