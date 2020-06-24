@@ -13,14 +13,14 @@ def face_det():
 	camera.resolution = (200, 200)
 	camera.color_effects = (128,128)
 
-	client_id = '020c7026a7e4322'
-	client_secret = '99731e85e507dbec6446ead031293f816127ad07'
+	client_id = YOUR_ID
+	client_secret = YOUR_CLIENT_SECRET
 	client = ImgurClient(client_id, client_secret)
 	authorization_url = client.get_auth_url('pin')
 
 	image_path = 'ha_roy.jpg'
 	
-	subscription_key = '9b463a879b054920b2c6cd157d0f2b42'
+	subscription_key = YOUR_KEY
 	assert subscription_key
 
 	face_api_url = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect'
